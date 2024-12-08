@@ -1,0 +1,30 @@
+.navbar {
+    background-color: white;
+    border-bottom: 2px solid #5f626c; 
+}
+
+.brand-logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.navbar-brand {
+    color: #346c4a; 
+    font-weight: bold; 
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #25331c;
+    font-weight: bold;
+    margin-right: 1.5rem;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active {
+    color: #346c4a !important;
+    padding-bottom: 0.25rem !important;
+    border-bottom: 4px solid #346c4a !important;
+}
+
