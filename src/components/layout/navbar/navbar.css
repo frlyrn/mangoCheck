@@ -28,3 +28,11 @@
     border-bottom: 4px solid #346c4a !important;
 }
 
+@media (max-width: 768px) {
+    .auth-button {
+        margin: 10px 0; 
+        width: 100%;    
+    }
+}
+
+

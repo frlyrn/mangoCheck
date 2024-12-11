@@ -16,18 +16,6 @@ const NavBar = (props) => {
         navigate("/login");
     };
 
-    const userData = localStorage.getItem("userData");
-    let name = "";
-    let email = "";
-
-    if (userData) {
-        const userObj = JSON.parse(userData);
-        name = userObj.name;
-        email = userObj.email;
-    }
-
-    console.log(name, email);
-
     return (
         <Navbar expand="lg" fixed="top" className={props.className}>
             <Container>
@@ -41,38 +29,32 @@ const NavBar = (props) => {
                         <NavLink className="nav-link" to="/mangoCheck">
                             Home
                         </NavLink>
-                        <NavLink className="nav-link" to="/stores">
+                        <NavLink className="nav-link" to="/mangoDetection">
                             Detection
                         </NavLink>
-                        <NavLink className="nav-link" to="/about-us">
+                        <NavLink className="nav-link" to="/aboutUs">
                             About Us
-                        </NavLink>
-                        <NavLink className="nav-link" to="/contact-us">
-                            Contact Us
                         </NavLink>
                     </Nav>
                     <Nav className="ms-auto">
                         {!authCtx.isLoggedIn ? (
                             <>
                                 <Link to="/register">
-                                    <Button variant="outline-success" className="me-2">
+                                    <Button variant="outline-success" className="me-2 mt-lg-0 mt-2">
                                         Sign Up
                                     </Button>
                                 </Link>
                                 <Link to="/login">
-                                    <Button variant="outline-success">
+                                    <Button variant="outline-success" className="me-2 mt-lg-0 mt-2">
                                         Sign In
                                     </Button>
                                 </Link>
                             </>
                         ) : (
                             <>
-                                <Button variant="outline-light" onClick={logoutHandler} className="me-2">
+                                <Button variant="outline-danger" onClick={logoutHandler} className="me-2">
                                     Logout
                                 </Button>
-                                <h6 className="text-white">
-                                    {name} <br /> {email}
-                                </h6>
                             </>
                         )}
                     </Nav>

@@ -53,15 +53,6 @@ hr {
   background-color: #a0bea0;
 }
 
-a {
-  color: #393f81;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   .vh-100 {
       padding: 0 1rem; 
@@ -74,11 +65,4 @@ a:hover {
   .card-body {
       padding: 1.5rem; 
   }
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; 
 }

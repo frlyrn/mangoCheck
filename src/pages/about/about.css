@@ -1,0 +1,156 @@
+.about-us {
+    padding-top: 50px;
+}
+
+.about-us h1 {
+    color: #557334; 
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.about-us h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about-us p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-us ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about-us li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.about-us li strong {
+    color: #eebd2b;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.about-us .text-center {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.about-us .text-center h2 {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.about-us .text-center p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.about-us .technology-section {
+    background: linear-gradient(135deg, #fff9e3, #ffe082, #ffc107);  
+    animation: fluidBackground 8s ease infinite;  
+    padding: 80px 80px;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    background-position: center center;
+}
+
+@keyframes fluidBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.about-us .technology-section h2 {
+    font-size: 2.2rem;
+    color: #557334; 
+    margin-bottom: 20px;
+}
+
+.about-us .technology-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.about-us .technology-section p strong {
+    color: #eebd2b; 
+}
+
+.about-us .why-choose-section {
+    background-color: #fff; 
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.about-us .why-choose-section h2 {
+    font-size: 2.2rem;
+    color: #557334; 
+    margin-bottom: 20px;
+}
+
+.about-us .why-choose-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about-us .why-choose-section li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.about-us .why-choose-section li strong {
+    color: #eebd2b; 
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.about-us .why-choose-section li::before {
+    content: "✔️";
+    color: #557334; 
+    margin-right: 12px;
+}
+
+@media (max-width: 767px) {
+    .about-us h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-us h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-us p {
+        font-size: 1rem;
+    }
+
+    .about-us button {
+        font-size: 1rem;
+    }
+
+    .about-us .technology-section {
+        padding: 80px 30px;
+    }
+}

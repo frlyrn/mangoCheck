@@ -11,6 +11,8 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      showPassword: false,
+      showConfirmPassword: false,
       registrationComplete: false,
       registrationStatus: "",
       errorMessage: "",
@@ -21,6 +23,12 @@ class Register extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  togglePasswordVisibility = (field) => {
+    this.setState((prevState) => ({
+      [field]: !prevState[field],
+    }));
   };
 
   register = async (event) => {
@@ -46,11 +54,11 @@ class Register extends Component {
     }
 
     try {
-      // Mengirimkan data ke endpoint backend
-      const response = await axios.post(
-        "http://localhost:3000/regist",  // Pastikan URL sesuai dengan backend Anda
-        { name, email, password }
-      );
+      const response = await axios.post("http://34.101.98.218:3000/regist", {
+        name,
+        email,
+        password,
+      });
       console.log(response.data);
       this.setState({
         registrationComplete: true,
@@ -75,6 +83,8 @@ class Register extends Component {
       email,
       password,
       confirmPassword,
+      showPassword,
+      showConfirmPassword,
     } = this.state;
 
     if (registrationComplete) {
@@ -148,27 +158,43 @@ class Register extends Component {
                               required
                             />
                           </div>
-                          <div className="form-outline">
+                          <div className="form-outline position-relative">
                             <input
                               value={password}
                               onChange={this.handleChange}
-                              type="password"
+                              type={showPassword ? "text" : "password"}
                               name="password"
                               className="form-control"
                               placeholder="Your Password"
                               required
                             />
+                            <i
+                              className={`fas ${
+                                showPassword ? "bi-eye-slash" : "bi-eye"
+                              } position-absolute end-0 top-50 translate-middle-y me-3`}
+                              style={{ cursor: "pointer" }}
+                              onClick={() => this.togglePasswordVisibility("showPassword")}
+                            ></i>
                           </div>
-                          <div className="form-outline">
+                          <div className="form-outline position-relative">
                             <input
                               value={confirmPassword}
                               onChange={this.handleChange}
-                              type="password"
+                              type={showConfirmPassword ? "text" : "password"}
                               name="confirmPassword"
                               className="form-control"
                               placeholder="Confirm Password"
                               required
                             />
+                            <i
+                              className={`fas ${
+                                showConfirmPassword ? "bi-eye-slash" : "bi-eye"
+                              } position-absolute end-0 top-50 translate-middle-y me-3`}
+                              style={{ cursor: "pointer" }}
+                              onClick={() =>
+                                this.togglePasswordVisibility("showConfirmPassword")
+                              }
+                            ></i>
                           </div>
                           <div className="pt-1 mb-4">
                             <button className="btn btn-login" type="submit">
