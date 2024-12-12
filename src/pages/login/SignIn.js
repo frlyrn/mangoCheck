@@ -10,63 +10,58 @@ import "./style.css";
 const Login = () => {
   const authCtx = useContext(AuthContext);
   const inputEmailRef = useRef();
+  const inputPasswordRef = useRef();
   const navigate = useNavigate();
 
   const [loginStatus, setLoginStatus] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
+    setShowPassword((prev) => !prev);
   };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const inputEmail = inputEmailRef.current.value;
-    const inputPassword = inputEmailRef.current.nextSibling.value;
+    const inputPassword = inputPasswordRef.current.value;
 
     try {
-      const res = await axios.post("http://34.101.98.218:3000/login", {
+      const res = await axios.post("http://34.101.214.48:3000/login", {
         email: inputEmail,
         password: inputPassword,
       });
-      console.log(res.data);
 
-      localStorage.setItem("token", res.data.token);
-
-      authCtx.login(res.data.token);
+      const token = res.data.data.token;
+      authCtx.login(token);
       setLoginStatus("SUCCESS");
 
-      navigate("/");
+      navigate("/mangoDetection");
     } catch (err) {
-      console.error(err.response ? err.response.data.message : err.message);
       setLoginStatus("FAILED");
+      console.error(
+        err.response?.data?.message || "An error occurred during login."
+      );
     } finally {
       inputEmailRef.current.value = "";
-      inputEmailRef.current.nextSibling.value = "";
+      inputPasswordRef.current.value = "";
     }
   };
 
   return (
     <div>
       <section className="vh-100">
-        <NavBar></NavBar>
-
+        <NavBar />
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col col-xl-10">
               <div className="card">
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block mt-5">
-                    <img
-                      src={loginImage}
-                      alt="login form"
-                      className="img-fluid"
-                    />
+                    <img src={loginImage} alt="Login" className="img-fluid" />
                   </div>
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body">
                       <form onSubmit={onSubmitHandler}>
-
                         <h3>Sign into your account</h3>
                         <hr />
                         {loginStatus === "FAILED" && (
@@ -84,8 +79,12 @@ const Login = () => {
                             required
                           />
                         </div>
-                        <div className="form-outline mb-3" style={{ position: "relative" }}>
+                        <div
+                          className="form-outline mb-3"
+                          style={{ position: "relative" }}
+                        >
                           <input
+                            ref={inputPasswordRef}
                             type={showPassword ? "text" : "password"}
                             className="form-control"
                             name="password"
@@ -93,7 +92,9 @@ const Login = () => {
                             required
                           />
                           <i
-                            className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+                            className={`bi ${
+                              showPassword ? "bi-eye-slash" : "bi-eye"
+                            }`}
                             style={{
                               position: "absolute",
                               right: "10px",

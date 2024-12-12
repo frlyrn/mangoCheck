@@ -54,7 +54,7 @@ class Register extends Component {
     }
 
     try {
-      const response = await axios.post("http://34.101.98.218:3000/regist", {
+      const response = await axios.post("http://34.101.214.48:3000/regist", {
         name,
         email,
         password,
@@ -98,7 +98,7 @@ class Register extends Component {
                 <h2>Thank You for Registering!</h2>
                 <hr />
                 <p>
-                  You have successfully registered. Ready to explore?{" "}
+                  You have successfully registered. Start checking your mango?{" "}
                   <a href="/login" className="link-primary">
                     Continue
                   </a>

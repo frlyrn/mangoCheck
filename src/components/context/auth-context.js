@@ -1,63 +1,42 @@
 import React, { useState } from "react";
 
 const AuthContext = React.createContext({
-    name: "",
-    userId: "",
-    token: "",
-    isLoggedIn: false,
-    login: () => {},
-    logout: () => {},
+  token: "",
+  isLoggedIn: false,
+  login: (token) => {},
+  logout: () => {},
 });
 
 const retrieveStoredToken = () => {
-    const storedToken = localStorage.getItem("token");
-
-    return {
-        token: storedToken,
-    };
+  return localStorage.getItem("token");
 };
 
 export const AuthContextProvider = (props) => {
-        const storedToken = retrieveStoredToken();
-        let initialToken;
+  const initialToken = retrieveStoredToken();
+  const [token, setToken] = useState(initialToken);
 
-        if (storedToken) {
-            initialToken = storedToken.token;
-        }
+  const loginHandler = (token) => {
+    setToken(token);
+    localStorage.setItem("token", token);
+  };
 
-        const [token, setToken] = useState(initialToken);
-        const [user] = useState({
-            name: "",
-            userId: "",
-        });
-        const [isLoggedIn, setIsLoggedIn] = useState(!!initialToken);
+  const logoutHandler = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+  };
 
-        const logoutHandler = () => {
-            setToken(null);
-            localStorage.removeItem("token");
-            setIsLoggedIn(false);
-        };
+  const contextValue = {
+    token,
+    isLoggedIn: !!token,
+    login: loginHandler,
+    logout: logoutHandler,
+  };
 
-        const loginHandler = (token) => {
-            setToken(token);
-            localStorage.setItem("token", token);
-            setIsLoggedIn(true);
-        };
-
-        const contextValue = {
-            name: user.name,
-            userId: user.userId,
-            token: token,
-            isLoggedIn: isLoggedIn,
-            login: loginHandler,
-            logout: logoutHandler,
-        };
-
-    return (
-        <AuthContext.Provider value={contextValue}>
-            {props.children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={contextValue}>
+      {props.children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthContext;
