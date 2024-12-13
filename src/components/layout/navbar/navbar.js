@@ -1,7 +1,7 @@
 import { Button, Navbar, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import mangoImage from "../../../images/mango.png"
+import mangoImage from "../../../images/logo.png"
 import AuthContext from "../../context/auth-context";
 import { useContext } from "react";
 
@@ -20,7 +20,7 @@ const NavBar = (props) => {
         <Navbar expand="lg" fixed="top" className={props.className}>
             <Container>
                 <NavLink className="navbar-brand" to="/">
-                    <img src={mangoImage} alt="shop" style={{ height: '60px' }} className="me-2" />
+                    <img src={mangoImage} alt="shop" style={{ height: '70px' }} className="me-2" />
                     MangoCheck
                 </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
