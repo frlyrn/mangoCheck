@@ -1,4 +1,4 @@
-#Capstone Bangkit 2024
+# Capstone Bangkit 2024
 Frontend mangoCheck website
 
 # Getting Started with Create React App
