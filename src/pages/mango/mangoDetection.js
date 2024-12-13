@@ -6,8 +6,40 @@ import axios from "axios";
 import detectImage from "../../images/detect.jpg"
 import "./mangoDetection.css";
 import Footer from "../../components/layout/footer/footer";
+import { Carousel } from "react-bootstrap";
+import icon1Image from "../../images/artikel-icon1.jpg"
+import icon2Image from "../../images/artikel-icon2.jpg"
+import icon3Image from "../../images/artikel-icon3.jpg"
+import icon4Image from "../../images/artikel-icon4.jpg"
 
 const MangoDetection = () => {
+    const articles = [
+        {
+            title: "Interesting facts about mangoes",
+            text: "Explore fun facts about mangoes.",
+            img: icon1Image,
+            href: "/mangoFacts"
+        },
+        {
+            title: "Top 10 Mango Varieties",
+            text: "Explore the top 10 varieties of mangoes.",
+            img: icon3Image,
+            href: "/mangoVarieties"
+        },
+        {
+            title: "Health Benefits of Mangoes",
+            text: "Uncover the health benefits of eating mangoes.",
+            img: icon2Image,
+            href: "/mangoBenefits"
+        },
+        {
+            title: "How to Grow Mango Trees",
+            text: "Learn tips and tricks for growing your own mango trees at home.",
+            img: icon4Image,
+            href: "/mangoTrees"
+        },
+    ];
+
     const [selectedImage, setSelectedImage] = useState(null);
     const [detectionResult, setDetectionResult] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -142,6 +174,38 @@ const MangoDetection = () => {
                     </Col>
                 </Row>
             </Container>
+
+            <div>
+                <div className="blog-section container-fluid py-5">
+                    <h2 className="text-center my-5" style={{ color: "#346c4e" }}
+                    >Latest Articles</h2>
+                    <Carousel interval={null} indicators={false}>
+                        {/* Loop articles in groups of 3 */}
+                        {[0, 3].map((startIndex) => (
+                            <Carousel.Item key={startIndex}>
+                                <div className="row justify-content-center">
+                                    {articles.slice(startIndex, startIndex + 3).map((article, index) => (
+                                        <div className="col-lg-3 col-md-6 mb-4 artikel" key={index}>
+                                            <div className="card">
+                                                <img
+                                                    src={article.img}
+                                                    className="card-img-top"
+                                                    alt={`Article ${index + 1}`}
+                                                />
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{article.title}</h5>
+                                                    <p className="card-text">{article.text}</p>
+                                                    <a href={article.href} className="btn btn-warning">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                </div>
+            </div>
 
             <Footer></Footer>
         </div>
