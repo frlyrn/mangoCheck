@@ -5,27 +5,41 @@ import icon1Image from "../../images/artikel-icon1.jpg";
 import icon2Image from "../../images/artikel-icon2.jpg"
 import icon3Image from "../../images/artikel-icon3.jpg"
 import icon4Image from "../../images/artikel-icon4.jpg"
+import icon5Image from "../../images/artikel-icon5.jpg"
+import icon6Image from "../../images/artikel-icon6.jpg"
 import { Carousel } from "react-bootstrap";
 
 const MangoTrees = () => {
     const articles = [
         {
-            title: "Top 10 Mango Varieties",
-            text: "Explore the top 10 varieties of mangoes.",
+            title: "Top 10 Jenis Mangga",
+            text: "Jelajahi 10 jenis mangga terbaik.",
             img: icon3Image,
-            href: "/mangoVarieties"
+            href: "/jenisMangga"
         },
         {
-            title: "Health Benefits of Mangoes",
-            text: "Uncover the health benefits of eating mangoes.",
+            title: "Manfaat Kesehatan",
+            text: "Menyingkap manfaat kesehatan dari makan mangga.",
             img: icon2Image,
-            href: "/mangoBenefits"
+            href: "/manfaatMangga"
         },
         {
-            title: "Interesting facts about mangoes",
-            text: "Explore fun facts about mangoes.",
+            title: "Fakta menarik buah mangga",
+            text: "Jelajahi fakta menarik buah mangga.",
             img: icon1Image,
-            href: "/mangoFacts"
+            href: "/faktaMangga"
+        },
+        {
+            title: "Resep Olahan Mangga",
+            text: "Intip beberapa resep yang dapat anda coba.",
+            img: icon5Image,
+            href: "/resepOlahanMangga"
+        },
+        {
+            title: "Penyakit dan Hama Tanaman Mangga",
+            text: "temukan cara mengatasinya.",
+            img: icon6Image,
+            href: "/penyakitHamaTanamanMangga"
         },
     ];
 
@@ -33,8 +47,8 @@ const MangoTrees = () => {
         <div>
             <NavBar />
             <div className="container grow py-5">
-                <h2 className="text-center mb-4">How to Grow Mango Trees</h2>
-                <p className="text-center text-muted mb-5">Learn tips and tricks for growing your own mango trees at home.</p>
+                <h2 className="text-center mb-4">Cara Menanam Pohon Mangga</h2>
+                <p className="text-center text-muted mb-5">Pelajari tips dan trik untuk menanam pohon mangga Anda sendiri di rumah.</p>
 
                 <div className="row align-items-center">
                     {/* Gambar Utama */}
@@ -49,27 +63,27 @@ const MangoTrees = () => {
                     {/* Konten Utama */}
                     <div className="col-lg-7">
                         <div className="grow-step mb-4">
-                            <h5>1. Choose the Right Variety</h5>
+                            <h5>1. Pilih Varietas yang Tepat</h5>
                             <p>
-                                Select a mango variety suitable for your climate and available space. Dwarf varieties are perfect for small gardens or containers.
+                                Pilih varietas mangga yang sesuai dengan iklim dan ruang yang tersedia. Varietas kerdil sangat cocok untuk taman kecil atau pot.
                             </p>
                         </div>
                         <div className="grow-step mb-4">
-                            <h5>2. Prepare the Soil</h5>
+                            <h5>2. Siapkan Tanah</h5>
                             <p>
-                                Mango trees thrive in well-draining soil with a pH between 5.5 and 7. Dig a deep hole, add organic compost, and ensure the location gets full sunlight.
+                                Pohon mangga tumbuh baik di tanah yang memiliki drainase baik dengan pH antara 5,5 hingga 7. Gali lubang yang dalam, tambahkan kompos organik, dan pastikan lokasi mendapat sinar matahari penuh.
                             </p>
                         </div>
                         <div className="grow-step mb-4">
-                            <h5>3. Plant the Seed or Sapling</h5>
+                            <h5>3. Tanam Bibit atau Anakan</h5>
                             <p>
-                                If starting from seed, soak it in water for 24 hours and plant it in moist soil. Alternatively, plant a healthy sapling, ensuring the graft union is above the soil.
+                                Jika memulai dari biji, rendam dalam air selama 24 jam dan tanam di tanah yang lembap. Alternatifnya, tanam anakan yang sehat dengan memastikan sambungan okulasi berada di atas permukaan tanah.
                             </p>
                         </div>
                         <div className="grow-step">
-                            <h5>4. Water and Mulch</h5>
+                            <h5>4. Siram dan Beri Mulsa</h5>
                             <p>
-                                Water regularly but avoid overwatering, as mango trees dislike soggy soil. Add a layer of mulch to retain moisture and prevent weeds.
+                                Siram secara teratur namun hindari penyiraman berlebihan karena pohon mangga tidak menyukai tanah yang tergenang air. Tambahkan lapisan mulsa untuk menjaga kelembapan dan mencegah gulma.
                             </p>
                         </div>
                     </div>
@@ -77,29 +91,29 @@ const MangoTrees = () => {
 
                 {/* Tips Tambahan */}
                 <div className="mt-5">
-                    <h3 className="text-center mb-4" style={{ color: "#eebd2b" }}>Extra Tips for Successful Growth</h3>
+                    <h3 className="text-center mb-4" style={{ color: "#eebd2b" }}>Tips Tambahan untuk Pertumbuhan yang Sukses</h3>
                     <div className="row">
                         <div className="col-md-4 mb-4">
                             <div className="tip-card shadow-sm p-3">
-                                <h6 className="tip-title">Fertilize Properly</h6>
+                                <h6 className="tip-title">Pemupukan yang Tepat</h6>
                                 <p>
-                                    Use a balanced fertilizer during the growing season and reduce feeding in winter.
+                                    Gunakan pupuk seimbang selama masa pertumbuhan dan kurangi pemupukan pada musim dingin.
                                 </p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
                             <div className="tip-card shadow-sm p-3">
-                                <h6 className="tip-title">Prune for Health</h6>
+                                <h6 className="tip-title">Pemangkasan untuk Kesehatan</h6>
                                 <p>
-                                    Prune dead or overcrowded branches to allow sunlight and air to circulate, promoting healthy growth.
+                                    Pangkas ranting yang mati atau terlalu rimbun agar sinar matahari dan udara dapat bersirkulasi, mendukung pertumbuhan yang sehat.
                                 </p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
                             <div className="tip-card shadow-sm p-3">
-                                <h6 className="tip-title">Pest Control</h6>
+                                <h6 className="tip-title">Pengendalian Hama</h6>
                                 <p>
-                                    Watch out for pests like mealybugs and mango hoppers. Use natural insecticides or neem oil to keep them at bay.
+                                    Waspadai hama seperti kutu putih dan penghisap mangga. Gunakan insektisida alami atau minyak nimba untuk mengusir mereka.
                                 </p>
                             </div>
                         </div>
@@ -109,7 +123,7 @@ const MangoTrees = () => {
 
             <div className="blog-section container-fluid py-5">
                 <h2 className="text-center my-5" style={{ color: "#346c4e" }}
-                >See More Articles</h2>
+                >Jelajahi Artikel Lainnya</h2>
                 <Carousel interval={null} indicators={false}>
                     {/* Loop articles in groups of 3 */}
                     {[0, 3].map((startIndex) => (
@@ -126,7 +140,7 @@ const MangoTrees = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{article.title}</h5>
                                                 <p className="card-text">{article.text}</p>
-                                                <a href={article.href} className="btn btn-warning">Read More</a>
+                                                <a href={article.href} className="btn btn-warning">Baca Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>

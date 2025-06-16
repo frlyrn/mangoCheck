@@ -26,7 +26,7 @@ const Login = () => {
     const inputPassword = inputPasswordRef.current.value;
 
     try {
-      const res = await axios.post("http://34.101.214.48:3000/login", {
+      const res = await axios.post("http://34.101.243.176:3000/login", {
         email: inputEmail,
         password: inputPassword,
       });
@@ -35,11 +35,11 @@ const Login = () => {
       authCtx.login(token);
       setLoginStatus("SUCCESS");
 
-      navigate("/mangoDetection");
+      navigate("/deteksiKematangan");
     } catch (err) {
       setLoginStatus("FAILED");
       console.error(
-        err.response?.data?.message || "An error occurred during login."
+        err.response?.data?.message || "Terjadi kesalahan saat login."
       );
     } finally {
       inputEmailRef.current.value = "";
@@ -62,11 +62,11 @@ const Login = () => {
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body">
                       <form onSubmit={onSubmitHandler}>
-                        <h3>Sign into your account</h3>
+                        <h3>Login ke akun anda!</h3>
                         <hr />
                         {loginStatus === "FAILED" && (
                           <div className="alert alert-danger text-center">
-                            Email or password is invalid
+                            Email atau password tidak valid!
                           </div>
                         )}
                         <div className="form-outline mb-3">
@@ -75,7 +75,7 @@ const Login = () => {
                             type="email"
                             name="email"
                             className="form-control"
-                            placeholder="Your Email"
+                            placeholder="Masukkan email anda"
                             required
                           />
                         </div>
@@ -88,7 +88,7 @@ const Login = () => {
                             type={showPassword ? "text" : "password"}
                             className="form-control"
                             name="password"
-                            placeholder="Your Password"
+                            placeholder="Masukkan password anda"
                             required
                           />
                           <i
@@ -112,12 +112,9 @@ const Login = () => {
                           </button>
                         </div>
                         <p className="mb-3 pb-lg-2">
-                          Don't have an account?{" "}
-                          <a href="/register">SignUp here</a>
+                          Belum mempunyai akun?{" "}
+                          <a href="/registrasi">Daftar disini</a>
                         </p>
-                        <a href="/regulations" className="small text-muted">
-                          Terms & Conditions
-                        </a>
                       </form>
                     </div>
                   </div>

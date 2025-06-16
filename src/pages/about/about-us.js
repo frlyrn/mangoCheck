@@ -15,7 +15,7 @@ const AboutUs = () => {
                         <Col>
                             <h1 className="display-4">Welcome to MangoCheck!</h1>
                             <p className="lead">
-                                At MangoCheck, we are passionate about one of the world's most beloved fruits – the mango. Our mission is to revolutionize the way mangoes are harvested, consumed, and traded by providing an intelligent and easy-to-use mango ripeness detection system.
+                                Di MangoCheck, kami sangat mencintai salah satu buah paling disukai di dunia – mangga. Misi kami adalah merevolusi cara mangga dipanen, dikonsumsi, dan diperdagangkan dengan menyediakan sistem deteksi kematangan mangga yang cerdas dan mudah digunakan.
                             </p>
                         </Col>
                     </Row>
@@ -25,9 +25,9 @@ const AboutUs = () => {
                 <div className='container-fluid'>
                     <Row className="mb-5">
                         <Col className="technology-section">
-                            <h2>Our Technology</h2>
+                            <h2>Teknologi Kami</h2>
                             <p>
-                                We use state-of-the-art artificial intelligence (AI) to analyze mango ripeness from images. By simply uploading a photo of a mango, our AI-powered system detects and provides an accurate analysis of the fruit's ripeness. This helps farmers to determine the best harvest time, enables consumers to choose the ideal mango, and provides businesses with valuable insights into product quality.
+                                Kami menggunakan kecerdasan buatan (AI) canggih untuk menganalisis kematangan mangga dari gambar. Dengan hanya mengunggah foto mangga, sistem kami yang didukung AI mendeteksi dan memberikan analisis yang akurat tentang kematangan buah tersebut. Ini membantu petani untuk menentukan waktu panen yang terbaik, memungkinkan konsumen memilih mangga yang ideal, dan memberikan wawasan berharga kepada bisnis tentang kualitas produk.
                             </p>
                         </Col>
                     </Row>
@@ -36,12 +36,12 @@ const AboutUs = () => {
                 <div className='container'>
                     <Row className="why-choose-section">
                         <Col>
-                            <h2>Why Choose MangoCheck?</h2>
+                            <h2>Mengapa Memilih MangoCheck?</h2>
                             <ul>
-                                <li><strong>Accurate Ripeness Detection:</strong> Our AI system ensures precise results every time, so you can enjoy your mango at the perfect ripeness.</li>
-                                <li><strong>Save Time and Reduce Waste:</strong> By knowing the ideal time for consumption or harvest, we help reduce the number of underripe or overripe mangoes.</li>
-                                <li><strong>Efficiency for Businesses:</strong> Whether you’re a farmer, distributor, or retailer, our technology helps you enhance your product's quality and efficiency in the marketplace.</li>
-                                <li><strong>User-Friendly:</strong> Simple and easy-to-use technology that anyone can access—whether you're a mango lover or a professional.</li>
+                                <li><strong>Deteksi Kematangan yang Akurat:</strong> Sistem AI kami menjamin hasil yang tepat setiap saat, sehingga Anda dapat menikmati mangga pada tingkat kematangan yang sempurna.</li>
+                                <li><strong>Menghemat Waktu dan Mengurangi Limbah:</strong> Dengan mengetahui waktu ideal untuk konsumsi atau panen, kami membantu mengurangi jumlah mangga yang belum matang atau terlalu matang.</li>
+                                <li><strong>Efisiensi untuk Bisnis:</strong> Baik Anda petani, distributor, atau pengecer, teknologi kami membantu meningkatkan kualitas produk dan efisiensi di pasar.</li>
+                                <li><strong>Mudah Digunakan:</strong> Teknologi yang sederhana dan mudah diakses oleh siapa saja—baik pecinta mangga maupun profesional.</li>
                             </ul>
                         </Col>
                     </Row>

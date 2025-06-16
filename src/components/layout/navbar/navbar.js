@@ -27,26 +27,26 @@ const NavBar = (props) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <NavLink className="nav-link" to="/mangoCheck">
-                            Home
+                            Beranda
                         </NavLink>
-                        <NavLink className="nav-link" to="/mangoDetection">
-                            Detection
+                        <NavLink className="nav-link" to="/deteksiKematangan">
+                            Deteksi Kematangan
                         </NavLink>
-                        <NavLink className="nav-link" to="/aboutUs">
-                            About Us
+                        <NavLink className="nav-link" to="/tentangMangoCheck">
+                            Tentang MangoCheck
                         </NavLink>
                     </Nav>
                     <Nav className="ms-auto">
                         {!authCtx.isLoggedIn ? (
                             <>
-                                <Link to="/register">
+                                <Link to="/registrasi">
                                     <Button variant="outline-success" className="me-2 mt-lg-0 mt-2">
-                                        Sign Up
+                                        Daftar
                                     </Button>
                                 </Link>
                                 <Link to="/login">
                                     <Button variant="outline-success" className="me-2 mt-lg-0 mt-2">
-                                        Sign In
+                                        Login
                                     </Button>
                                 </Link>
                             </>

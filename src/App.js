@@ -13,6 +13,8 @@ import MangoVarieties from "./pages/artikel/mangoVarieties";
 import Login from "./pages/login/SignIn";
 import AuthContext from "./components/context/auth-context";
 import HistoryDetection from "./pages/history/history";
+import ResepOlahan from "./pages/artikel/resepOlahan";
+import PenyakitMangga from "./pages/artikel/penyakitMangga";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -22,19 +24,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mangoCheck" element={<Home />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/register" element={<Register />}></Route>
+        <Route path="/tentangMangoCheck" element={<AboutUs />} />
+        <Route path="/registrasi" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
 
         {/* Article Pages */}
-        <Route path="/mangoFacts" element={<MangoFacts />} />
-        <Route path="/mangoBenefits" element={<MangoBenefits />} />
-        <Route path="/mangoTrees" element={<MangoTrees />} />
-        <Route path="/mangoVarieties" element={<MangoVarieties />} />
+        <Route path="/faktaMangga" element={<MangoFacts />} />
+        <Route path="/manfaatMangga" element={<MangoBenefits />} />
+        <Route path="/menanamPohonMangga" element={<MangoTrees />} />
+        <Route path="/jenisMangga" element={<MangoVarieties />} />
+        <Route path="/resepOlahanMangga" element={<ResepOlahan />} />
+        <Route path="/penyakitHamaTanamanMangga" element={<PenyakitMangga />} />
 
-        {/* <Route path="/mangoDetection" element={<MangoDetection />} /> */}
-
-        <Route path="/mangoDetection" element={authCtx.isLoggedIn ? <MangoDetection /> : <Navigate to="/login" />}></Route>
+        <Route path="/deteksiKematangan" element={authCtx.isLoggedIn ? <MangoDetection /> : <Navigate to="/login" />}></Route>
         <Route path="/historyDetection" element={authCtx.isLoggedIn ? <HistoryDetection /> : <Navigate to="/login" />}></Route>
 
       </Routes>

@@ -40,7 +40,7 @@ class Register extends Component {
     if (!name || !email || !password || !confirmPassword) {
       this.setState({
         registrationStatus: "FAILED",
-        errorMessage: "All fields are required!",
+        errorMessage: "Semua kolom harus diisi!",
       });
       return;
     }
@@ -48,13 +48,13 @@ class Register extends Component {
     if (password !== confirmPassword) {
       this.setState({
         registrationStatus: "FAILED",
-        errorMessage: "Passwords do not match!",
+        errorMessage: "Konfirmasi password tidak sama!",
       });
       return;
     }
 
     try {
-      const response = await axios.post("http://34.101.214.48:3000/regist", {
+      const response = await axios.post("http://34.101.243.176:3000/regist", {
         name,
         email,
         password,
@@ -69,7 +69,7 @@ class Register extends Component {
       this.setState({
         registrationStatus: "FAILED",
         errorMessage:
-          error.response?.data?.message || "An error occurred during registration.",
+          error.response?.data?.message || "Terjadi kesalahan selama pendaftaran.",
       });
     }
   };
@@ -95,12 +95,12 @@ class Register extends Component {
             <div className="container py-5">
               <div className="col-6 mx-auto text-center">
                 <img src={registImage} style={{ width: "70%" }} alt="success" />
-                <h2>Thank You for Registering!</h2>
+                <h2>Terimakasih Sudah Melakukan Pendaftaran Akun!</h2>
                 <hr />
                 <p>
-                  You have successfully registered. Start checking your mango?{" "}
+                  Anda telah berhasil mendaftar. Mulai periksa mangga Anda?{" "}
                   <a href="/login" className="link-primary">
-                    Continue
+                    Selanjutnya
                   </a>
                 </p>
               </div>
@@ -128,8 +128,8 @@ class Register extends Component {
                     </div>
                     <div className="col-md-6 col-lg-7 d-flex align-items-center">
                       <div className="card-body">
-                        <form onSubmit={this.register}>
-                          <h3>Create an Account</h3>
+                        <form onSubmit={this.register} className="needs-validation" novalidate>
+                          <h3>Buat Akun Anda!</h3>
                           <hr />
                           {registrationStatus === "FAILED" && (
                             <div className="alert alert-danger text-center">
@@ -143,7 +143,7 @@ class Register extends Component {
                               type="text"
                               name="name"
                               className="form-control"
-                              placeholder="Your Name"
+                              placeholder="Masukkan nama anda"
                               required
                             />
                           </div>
@@ -154,7 +154,7 @@ class Register extends Component {
                               type="email"
                               name="email"
                               className="form-control"
-                              placeholder="Your Email"
+                              placeholder="Masukkan email anda"
                               required
                             />
                           </div>
@@ -165,7 +165,7 @@ class Register extends Component {
                               type={showPassword ? "text" : "password"}
                               name="password"
                               className="form-control"
-                              placeholder="Your Password"
+                              placeholder="Masukkan password anda"
                               required
                             />
                             <i
@@ -183,7 +183,7 @@ class Register extends Component {
                               type={showConfirmPassword ? "text" : "password"}
                               name="confirmPassword"
                               className="form-control"
-                              placeholder="Confirm Password"
+                              placeholder="Konfirmasi password anda"
                               required
                             />
                             <i
@@ -198,16 +198,13 @@ class Register extends Component {
                           </div>
                           <div className="pt-1 mb-4">
                             <button className="btn btn-login" type="submit">
-                              Sign Up
+                              Daftar
                             </button>
                           </div>
                           <p className="mb-3 pb-lg-2">
-                            Already have an account?{" "}
-                            <a href="/login">Sign In here</a>
+                            Sudah mempunyai akun?{" "}
+                            <a href="/login">Login disini</a>
                           </p>
-                          <a href="/regulations" className="small text-muted">
-                            Terms & Conditions
-                          </a>
                         </form>
                       </div>
                     </div>

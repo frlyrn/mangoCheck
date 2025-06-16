@@ -11,32 +11,46 @@ import icon1Image from "../../images/artikel-icon1.jpg"
 import icon2Image from "../../images/artikel-icon2.jpg"
 import icon3Image from "../../images/artikel-icon3.jpg"
 import icon4Image from "../../images/artikel-icon4.jpg"
+import icon5Image from "../../images/artikel-icon5.jpg"
+import icon6Image from "../../images/artikel-icon6.jpg"
 
 const MangoDetection = () => {
     const articles = [
         {
-            title: "Interesting facts about mangoes",
-            text: "Explore fun facts about mangoes.",
+            title: "Fakta menarik buah mangga",
+            text: "Jelajahi fakta menarik buah mangga.",
             img: icon1Image,
-            href: "/mangoFacts"
+            href: "/faktaMangga"
         },
         {
-            title: "Top 10 Mango Varieties",
-            text: "Explore the top 10 varieties of mangoes.",
+            title: "Top 10 Jenis Mangga",
+            text: "Jelajahi 10 jenis mangga terbaik.",
             img: icon3Image,
-            href: "/mangoVarieties"
+            href: "/jenisMangga"
         },
         {
-            title: "Health Benefits of Mangoes",
-            text: "Uncover the health benefits of eating mangoes.",
+            title: "Manfaat Kesehatan",
+            text: "Menyingkap manfaat kesehatan dari makan mangga.",
             img: icon2Image,
-            href: "/mangoBenefits"
+            href: "/manfaatMangga"
         },
         {
-            title: "How to Grow Mango Trees",
-            text: "Learn tips and tricks for growing your own mango trees at home.",
+            title: "Menanam Pohon Mangga",
+            text: "Tips dan trik menanam pohon mangga.",
             img: icon4Image,
-            href: "/mangoTrees"
+            href: "/menanamPohonMangga"
+        },
+        {
+            title: "Resep Olahan Mangga",
+            text: "Intip beberapa resep yang dapat anda coba.",
+            img: icon5Image,
+            href: "/resepOlahanMangga"
+        },
+        {
+            title: "Penyakit dan Hama Tanaman Mangga",
+            text: "temukan cara mengatasinya.",
+            img: icon6Image,
+            href: "/penyakitHamaTanamanMangga"
         },
     ];
 
@@ -73,7 +87,7 @@ const MangoDetection = () => {
                 }
             };
 
-            const response = await axios.post("http://34.101.214.48:3000/predict", formData, config);
+            const response = await axios.post("http://34.101.243.176:3000/predict", formData, config);
             console.log(response.data);
 
             if (response.data.status === "success") {
@@ -95,8 +109,8 @@ const MangoDetection = () => {
             <Container className="deteksi py-5">
                 <Row className="mb-4 text-center">
                     <Col>
-                        <h1 className="display-4 font-weight-bold">Mango Ripeness Detection</h1>
-                        <p className="lead text-secondary">Upload an image of your mango and let our system analyze its ripeness.</p>
+                        <h1 className="display-4 font-weight-bold">Deteksi Kematangan Buah Mangga</h1>
+                        <p className="lead text-secondary">Unggah gambar mangga Anda dan biarkan sistem kami menganalisis kematangannya.</p>
                     </Col>
                 </Row>
 
@@ -104,7 +118,7 @@ const MangoDetection = () => {
                     <Col md={5} className="text-center">
                         {selectedImage && (
                             <div className="mt-4 mb-3">
-                                <h5 className="text-success">Selected Mango:</h5>
+                                <h5 className="text-success">Mangga yang dipilih:</h5>
                                 <Image
                                     src={selectedImage}
                                     alt="Selected Mango"
@@ -116,7 +130,7 @@ const MangoDetection = () => {
                         {/* Form */}
                         <Form>
                             <Form.Group className="mb-4">
-                                <Form.Label>Upload Mango Image</Form.Label>
+                                <Form.Label>Unggah Gambar Buah Mangga</Form.Label>
                                 <Form.Control
                                     type="file"
                                     accept="image/*"
@@ -130,7 +144,7 @@ const MangoDetection = () => {
                                 onClick={handleSubmit}
                                 className="btn-detect w-100"
                             >
-                                {loading ? "Processing..." : "Detect Ripeness"}
+                                {loading ? "Processing..." : "Deteksi Kematangan"}
                             </Button>
                         </Form>
 
@@ -141,7 +155,7 @@ const MangoDetection = () => {
                                 variant="outline-primary"
                                 className="btn-history"
                             >
-                                View all your detection history
+                                Lihat Semua Riwayat Deteksi Anda
                             </Button>
                         </div>
                     </Col>
@@ -159,9 +173,9 @@ const MangoDetection = () => {
 
                         {detectionResult && (
                             <Alert variant="success" className="result-alert">
-                                <h4 className="text-center font-weight-bold">Detection Result</h4>
-                                <p><strong>Ripeness:</strong> {detectionResult.result}</p>
-                                <p><strong>Suggestion:</strong> {detectionResult.suggestion}</p>
+                                <h4 className="text-center font-weight-bold">Hasil Deteksi</h4>
+                                <p><strong>Kematangan:</strong> {detectionResult.result}</p>
+                                <p> {detectionResult.suggestion}</p>
 
                             </Alert>
                         )}

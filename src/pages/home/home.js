@@ -7,33 +7,47 @@ import icon1Image from "../../images/artikel-icon1.jpg"
 import icon2Image from "../../images/artikel-icon2.jpg"
 import icon3Image from "../../images/artikel-icon3.jpg"
 import icon4Image from "../../images/artikel-icon4.jpg"
+import icon5Image from "../../images/artikel-icon5.jpg"
+import icon6Image from "../../images/artikel-icon6.jpg"
 import Footer from "../../components/layout/footer/footer";
 
 const Home = () => {
     const articles = [
         {
-            title: "Interesting facts about mangoes",
-            text: "Explore fun facts about mangoes.",
+            title: "Fakta menarik buah mangga",
+            text: "Jelajahi fakta menarik buah mangga.",
             img: icon1Image,
-            href: "/mangoFacts"
+            href: "/faktaMangga"
         },
         {
-            title: "Top 10 Mango Varieties",
-            text: "Explore the top 10 varieties of mangoes.",
+            title: "Top 10 Jenis Mangga",
+            text: "Jelajahi 10 jenis mangga terbaik.",
             img: icon3Image,
-            href: "/mangoVarieties"
+            href: "/jenisMangga"
         },
         {
-            title: "Health Benefits of Mangoes",
-            text: "Uncover the health benefits of eating mangoes.",
+            title: "Manfaat Kesehatan",
+            text: "Menyingkap manfaat kesehatan dari makan mangga.",
             img: icon2Image,
-            href: "/mangoBenefits"
+            href: "/manfaatMangga"
         },
         {
-            title: "How to Grow Mango Trees",
-            text: "Learn tips and tricks for growing your own mango trees at home.",
+            title: "Menanam Pohon Mangga",
+            text: "Tips dan trik menanam pohon mangga.",
             img: icon4Image,
-            href: "/mangoTrees"
+            href: "/menanamPohonMangga"
+        },
+        {
+            title: "Resep Olahan Mangga",
+            text: "Intip beberapa resep yang dapat anda coba.",
+            img: icon5Image,
+            href: "/resepOlahanMangga"
+        },
+        {
+            title: "Penyakit dan Hama Tanaman Mangga",
+            text: "temukan cara mengatasinya.",
+            img: icon6Image,
+            href: "/penyakitHamaTanamanMangga"
         },
     ];
 
@@ -43,12 +57,12 @@ const Home = () => {
 
             <div className="banner">
                 <div className="banner-text">
-                    <h5>Let's start checking the ripeness of your mango</h5>
+                    <h5>Mari mulai memeriksa kematangan mangga Anda</h5>
                     <h1>MangoCheck</h1>
                     <p>A Smart Ripeness Detection for Mango</p>
-                    <Link to="/mangoDetection">
+                    <Link to="/deteksiKematangan">
                         <Button variant="outline-light" className="me-2 mt-lg-0 mt-2 banner-button">
-                            Get Started
+                            Mulai Deteksi Kematangan
                         </Button>
                     </Link>
                 </div>
@@ -58,37 +72,33 @@ const Home = () => {
                 <h2 className="text-center mb-5">How It Works</h2>
                 <div className="row">
                     <div className="col-md-6">
-                        <h5 className="mb-3">How to Use?</h5>
+                        <h5 className="mb-3">Bagaimana Cara Menggunakan Website MangoCheck?</h5>
 
                         <ul>
-                            <li>Step 1: Upload
-                                <br></br>
-                                Upload an image of your mango for analysis.
+                            <li>Langkah 1:
+                                Login ke akun anda, lakukan registrasi akun bila anda belum mempunyai akun.
                             </li>
-                            <li>Step 2: AI Analysis
-                                <br></br>
-                                Our AI system analyzes the ripeness level.
+                            <li>Langkah 2:
+                                Upload gambar buah mangga yang akan di deteksi.
                             </li>
-                            <li>Step 3: Get Results
-                                <br></br>
-                                Receive a detailed report on your mango's ripeness.
+                            <li>Langkah 3:
+                                Sistem akan mendeteksi kematangan. Anda akan mendapatkan hasil deteksi kematangan buah mangga anda.
                             </li>
                         </ul>
                     </div>
                     <div className="col-md-6 mt-lg-0 mt-3">
-                        <h5 className="mb-3">Benefits</h5>
+                        <h5 className="mb-3">Keuntungan Menggunakan Website MangoCheck</h5>
                         <ul>
-                            <li>Helping Harvest
-                                <br></br>
-                                This system makes it easier for farmers to determine the right harvest time, so they can harvest the fruit at the desired level of maturity for local or export market needs.
+                            <li>Membantu Panen:
+                                Sistem ini dapat memudahkan petani untuk menentukan waktu panen, sehingga mereka dapat memanen buah pada tingkat kematangan yang diinginkan untuk kebutuhan pasar.
                             </li>
-                            <li>Reduce Waste
+                            <li>Mengurangi Limbah:
                                 <br></br>
-                                By knowing the level of ripeness accurately, this system helps to avoid consuming fruit before it is ripe or after it has been overripe, thereby reducing waste.
+                                Dengan mengetahui tingkat kematangan secara akurat, sistem ini membantu untuk menghindari mengonsumsi buah sebelum matang atau setelah terlalu matang, dengan demikian mengurangi limbah.
                             </li>
-                            <li>Efficiency for Business
+                            <li>Kecepatan Mengetahui Kematangan
                                 <br></br>
-                                This system helps farmers and traders to know the quality of their products, so that they can determine the best time to sell fruit to the market.
+                                Bagi konsumen dapat dengan cepat mengetahui tingkat kematangan buah sebelum membeli, sehingga dapat memilih buah yang sesuai dengan kebutuhan dan preferensi mereka. Hal ini membantu menghindari pembelian buah yang belum matang atau sudah terlalu matang.
                             </li>
                         </ul>
                     </div>
@@ -97,7 +107,7 @@ const Home = () => {
 
             <div className="blog-section container-fluid py-5">
                 <h2 className="text-center my-5" style={{ color: "#346c4e" }}
-                >Latest Articles</h2>
+                >Artikel</h2>
                 <Carousel interval={null} indicators={false}>
                     {/* Loop articles in groups of 3 */}
                     {[0, 3].map((startIndex) => (
@@ -114,7 +124,7 @@ const Home = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{article.title}</h5>
                                                 <p className="card-text">{article.text}</p>
-                                                <a href={article.href} className="btn btn-warning">Read More</a>
+                                                <a href={article.href} className="btn btn-warning">Baca Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>

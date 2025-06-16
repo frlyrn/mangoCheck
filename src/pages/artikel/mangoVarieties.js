@@ -5,27 +5,41 @@ import icon1Image from "../../images/artikel-icon1.jpg";
 import icon2Image from "../../images/artikel-icon2.jpg"
 import icon3Image from "../../images/artikel-icon3.jpg"
 import icon4Image from "../../images/artikel-icon4.jpg"
+import icon5Image from "../../images/artikel-icon5.jpg"
+import icon6Image from "../../images/artikel-icon6.jpg"
 import { Carousel } from "react-bootstrap";
 
 const MangoVarieties = () => {
     const articles = [
         {
-            title: "Interesting facts about mangoes",
-            text: "Explore fun facts about mangoes.",
+            title: "Fakta menarik buah mangga",
+            text: "Jelajahi fakta menarik buah mangga.",
             img: icon1Image,
-            href: "/mangoFacts"
+            href: "/faktaMangga"
         },
         {
-            title: "Health Benefits of Mangoes",
-            text: "Uncover the health benefits of eating mangoes.",
+            title: "Manfaat Kesehatan",
+            text: "Menyingkap manfaat kesehatan dari makan mangga.",
             img: icon2Image,
-            href: "/mangoBenefits"
+            href: "/manfaatMangga"
         },
         {
-            title: "How to Grow Mango Trees",
-            text: "Learn tips and tricks for growing your own mango trees at home.",
+            title: "Menanam Pohon Mangga",
+            text: "Tips dan trik menanam pohon mangga.",
             img: icon4Image,
-            href: "/mangoTrees"
+            href: "/menanamPohonMangga"
+        },
+        {
+            title: "Resep Olahan Mangga",
+            text: "Intip beberapa resep yang dapat anda coba.",
+            img: icon5Image,
+            href: "/resepOlahanMangga"
+        },
+        {
+            title: "Penyakit dan Hama Tanaman Mangga",
+            text: "temukan cara mengatasinya.",
+            img: icon6Image,
+            href: "/penyakitHamaTanamanMangga"
         },
     ];
 
@@ -34,8 +48,8 @@ const MangoVarieties = () => {
             <NavBar />
 
             <div className="container varieties py-5">
-                <h2 className="text-center mb-4">Top 10 Mango Varieties</h2>
-                <p className="text-center text-muted mb-5">Explore the top 10 varieties of mangoes.</p>
+                <h2 className="text-center mb-4">Top 10 Jenis Mangga</h2>
+                <p className="text-center text-muted mb-5">Jelajahi 10 varietas mangga teratas.</p>
 
                 <div className="row align-items-center">
                     {/* Gambar Utama */}
@@ -51,34 +65,34 @@ const MangoVarieties = () => {
                     <div className="col-lg-7">
                         <ol className="variety-list">
                             <li>
-                                <strong>Alphonso (India):</strong> Known as the "King of Mangoes," Alphonso is celebrated for its rich, creamy texture and sweet flavor.
+                                <strong>Alphonso (India):</strong> Dikenal sebagai "Raja Mangga," Alphonso terkenal dengan tekstur yang kaya, creamy, dan rasa manisnya yang khas.
                             </li>
                             <li>
-                                <strong>Haden (USA):</strong> A vibrant red and yellow mango with a slightly tangy flavor and firm flesh.
+                                <strong>Haden (AS):</strong> Mangga berwarna merah dan kuning cerah dengan rasa agak asam dan daging buah yang padat.
                             </li>
                             <li>
-                                <strong>Carabao (Philippines):</strong> This variety is famous for its extreme sweetness and juiciness, often ranked as the sweetest mango in the world.
+                                <strong>Carabao (Filipina):</strong> Varietas ini terkenal dengan rasa manisnya yang ekstrem dan sangat juicy, sering dianggap sebagai mangga paling manis di dunia.
                             </li>
                             <li>
-                                <strong>Kesar (India):</strong> Known for its saffron-like hue and sweet taste, this variety is often used in desserts.
+                                <strong>Kesar (India):</strong> Dikenal dengan warna kuning keemasan seperti saffron dan rasa manisnya, sering digunakan untuk membuat makanan penutup.
                             </li>
                             <li>
-                                <strong>Tommy Atkins (USA):</strong> A popular variety known for its long shelf life and slightly fibrous texture.
+                                <strong>Tommy Atkins (AS):</strong> Varietas populer yang dikenal karena masa simpan yang lama dan tekstur yang sedikit berserat.
                             </li>
                             <li>
-                                <strong>Ataulfo (Mexico):</strong> Also called "Honey Mango," this variety is small, sweet, and buttery.
+                                <strong>Ataulfo (Meksiko):</strong> Juga dikenal sebagai "Mangga Madu," varietas ini kecil, manis, dan bertekstur lembut seperti mentega.
                             </li>
                             <li>
-                                <strong>Keitt (USA):</strong> A large, late-season mango with mild sweetness and low fiber content.
+                                <strong>Keitt (AS):</strong> Mangga besar yang matang di akhir musim dengan rasa manis yang ringan dan kandungan serat yang rendah.
                             </li>
                             <li>
-                                <strong>Francis (Haiti):</strong> This mango is bright yellow with green accents and has a spicy, sweet flavor.
+                                <strong>Francis (Haiti):</strong> Mangga berwarna kuning cerah dengan aksen hijau dan rasa manis pedas.
                             </li>
                             <li>
-                                <strong>Irwin (Australia):</strong> A beautifully colored mango with a smooth texture and balanced sweetness.
+                                <strong>Irwin (Australia):</strong> Mangga dengan warna cantik, tekstur halus, dan rasa manis yang seimbang.
                             </li>
                             <li>
-                                <strong>Palmer (Brazil):</strong> Known for its elongated shape, mild flavor, and non-fibrous flesh.
+                                <strong>Palmer (Brasil):</strong> Dikenal dengan bentuknya yang memanjang, rasa yang lembut, dan daging buah yang tidak berserat.
                             </li>
                         </ol>
                     </div>
@@ -86,39 +100,40 @@ const MangoVarieties = () => {
 
                 {/* Info Tambahan */}
                 <div className="mt-5">
-                    <h3 className="text-center mb-4" style={{ color: "#eebd2b" }}>Fun Facts About Mango Varieties</h3>
+                    <h3 className="text-center mb-4" style={{ color: "#eebd2b" }}>Fakta Menarik Tentang Varietas Mangga</h3>
                     <div className="row">
                         <div className="col-md-4 mb-4">
                             <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Longest Season</h6>
+                                <h6 className="fact-title">Musim Terpanjang</h6>
                                 <p>
-                                    The Tommy Atkins variety has one of the longest growing seasons, making it a favorite for exports.
+                                    Varietas Tommy Atkins memiliki salah satu musim tumbuh terpanjang, sehingga menjadi favorit untuk ekspor.
                                 </p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
                             <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Most Expensive</h6>
+                                <h6 className="fact-title">Paling Mahal</h6>
                                 <p>
-                                    The Miyazaki mango from Japan is considered the most expensive variety, costing up to $50 per fruit!
+                                    Mangga Miyazaki dari Jepang dianggap sebagai varietas paling mahal, dengan harga hingga $50 per buah!
                                 </p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-4">
                             <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Smallest Mango</h6>
+                                <h6 className="fact-title">Mangga Terkecil</h6>
                                 <p>
-                                    The Ataulfo mango is one of the smallest varieties but packs an incredibly sweet and buttery flavor.
+                                    Mangga Ataulfo adalah salah satu varietas terkecil, namun memiliki rasa yang sangat manis dan lembut seperti mentega.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div className="blog-section container-fluid py-5">
                 <h2 className="text-center my-5" style={{ color: "#346c4e" }}
-                >See More Articles</h2>
+                >Jelajahi Artikel Lainnya</h2>
                 <Carousel interval={null} indicators={false}>
                     {/* Loop articles in groups of 3 */}
                     {[0, 3].map((startIndex) => (
@@ -135,7 +150,7 @@ const MangoVarieties = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{article.title}</h5>
                                                 <p className="card-text">{article.text}</p>
-                                                <a href={article.href} className="btn btn-warning">Read More</a>
+                                                <a href={article.href} className="btn btn-warning">Baca Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>

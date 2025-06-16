@@ -20,13 +20,13 @@ const HistoryDetection = () => {
                     },
                 };
 
-                const response = await axios.get("http://34.101.214.48:3000/history", config);
+                const response = await axios.get("http://34.101.243.176:3000/history", config);
 
                 if (response.data.status === "success") {
                     const sortedData = response.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                     setHistory(sortedData);
                 } else {
-                    setError("Failed to fetch detection history. Please try again.");
+                    setError("Gagal mengambil riwayat deteksi. Silakan coba lagi.");
                 }
             } catch (err) {
                 console.error("Error fetching history:", err);
@@ -96,33 +96,38 @@ const HistoryDetection = () => {
                 ) : history.length === 0 ? (
                     <Row>
                         <Col>
-                            <Alert variant="info">No detection history found.</Alert>
+                            <Alert variant="info">Tidak ada riwayat deteksi yang ditemukan.</Alert>
                         </Col>
                     </Row>
                 ) : (
                     <>
                         <Row>
                             {currentItems.map((entry, index) => (
-                                <Col md={6} key={entry.id} className="mb-4">
-                                    <Alert variant="light" className="shadow-sm">
-                                        <h5 className="font-weight-bold">History #{indexOfFirstItem + index + 1}</h5>
-                                        {entry.imageUrl && (
-                                            <div className="text-center mb-3">
-                                                <Image
-                                                    src={entry.imageUrl}
-                                                    alt={`Mango Detection ${index + 1}`}
-                                                    fluid
-                                                    rounded
-                                                />
-                                            </div>
-                                        )}
-                                        <p><strong>Result:</strong> {entry.result}</p>
-                                        <p><strong>Suggestion:</strong> {entry.suggestion}</p>
-                                        <p><strong>Date:</strong> {formatDate(entry.createdAt)}</p>
+                                <Col md={6} key={entry.id} className="mb-4 d-flex">
+                                    <Alert variant="light" className="shadow-sm w-100 d-flex flex-column justify-content-between">
+                                        <Row className="align-items-center">
+                                            <Col xs={4} className="text-center">
+                                                {entry.imageUrl && (
+                                                    <Image
+                                                        src={entry.imageUrl}
+                                                        alt={`Mango Detection ${index + 1}`}
+                                                        thumbnail
+                                                        style={{ maxWidth: '100%', height: 'auto' }}
+                                                    />
+                                                )}
+                                            </Col>
+                                            <Col xs={8}>
+                                                <h6 className="font-weight-bold">History #{indexOfFirstItem + index + 1}</h6>
+                                                <p className="mb-1"><strong>Result:</strong> {entry.result}</p>
+                                                <p className="mb-1"><strong>Suggestion:</strong> {entry.suggestion}</p>
+                                                <p className="mb-0"><strong>Detection Date:</strong> {formatDate(entry.createdAt)}</p>
+                                            </Col>
+                                        </Row>
                                     </Alert>
                                 </Col>
                             ))}
                         </Row>
+
                         <Row className="mt-4">
                             <Col className="text-center">
                                 <Button

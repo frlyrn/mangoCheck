@@ -9,8 +9,14 @@ import icon5Image from "../../images/artikel-icon5.jpg"
 import icon6Image from "../../images/artikel-icon6.jpg"
 import { Carousel } from "react-bootstrap";
 
-const MangoFacts = () => {
+const PenyakitMangga = () => {
     const articles = [
+        {
+            title: "Fakta menarik buah mangga",
+            text: "Jelajahi fakta menarik buah mangga.",
+            img: icon1Image,
+            href: "/faktaMangga"
+        },
         {
             title: "Top 10 Jenis Mangga",
             text: "Jelajahi 10 jenis mangga terbaik.",
@@ -35,12 +41,6 @@ const MangoFacts = () => {
             img: icon5Image,
             href: "/resepOlahanMangga"
         },
-        {
-            title: "Penyakit dan Hama Tanaman Mangga",
-            text: "temukan cara mengatasinya.",
-            img: icon6Image,
-            href: "/penyakitHamaTanamanMangga"
-        },
     ];
 
     return (
@@ -48,13 +48,13 @@ const MangoFacts = () => {
             <NavBar />
 
             <div className="container facts py-5">
-                <h2 className="text-center mb-4">Fakta Menarik Tentang Mangga</h2>
-                <p className="text-center text-muted mb-5">Temukan dunia mangga yang menakjubkan!</p>
+                <h2 className="text-center mb-4">Penyakit & Hama Tanaman Mangga</h2>
+                <p className="text-center text-muted mb-5">Penyakit dan hama yang umum menyerang tanaman mangga serta cara mengatasinya.</p>
 
                 <div className="row konten-fact align-items-center">
                     <div className="col-lg-5 text-center mb-4">
                         <img
-                            src={icon1Image}
+                            src={icon6Image}
                             alt="Mango Icon"
                             className="img-fluid rounded shadow-lg"
                         />
@@ -63,58 +63,59 @@ const MangoFacts = () => {
                     {/* Fakta Utama */}
                     <div className="col-lg-7">
                         <div className="highlight-box mb-4">
-                            <h5>1. Raja dari Buah-buahan</h5>
-                            <p>
-                                Mangga telah mendapatkan julukan sebagai "raja dari buah-buahan" karena rasanya yang tak tertahankan, sejarah yang kaya, dan signifikansi budaya. Di India, mangga sangat dihargai dan dirayakan dalam festival.
-                            </p>
+                            <h5>1. Penyakit Jamur</h5>
+                            <br></br>
+                            <h6>Penyakit Antraknos (Colletotrichum gloeosporioides)</h6>
+                            <p>Penyakit ini ditandai dengan bercak-bercak hitam pada daun, batang, dan buah. Jika tidak diatasi, dapat menyebabkan kerusakan yang signifikan. Cara mengatasi:</p>
+                            <ul>
+                                <li>Gunakan fungisida yang sesuai, seperti fungisida berbahan aktif propikonazol.</li>
+                                <li>Jaga kebersihan area sekitar tanaman dan buang bagian tanaman yang terinfeksi.</li>
+                            </ul>
+                            <h6>Penyakit Embun Tepung (Oidium mangiferae)</h6>
+                            <p>Penyakit ini muncul sebagai lapisan putih pada daun dan dapat menghambat pertumbuhan tanaman. Cara mengatasi:</p>
+                            <ul>
+                                <li>Semprotkan fungisida berbahan aktif sulfur atau karbendazim.</li>
+                                <li>Pastikan sirkulasi udara yang baik di sekitar tanaman.</li>
+                            </ul>
                         </div>
                         <div className="highlight-box mb-4">
-                            <h5>2. Pohon Mangga Hidup Selama Berabad-abad</h5>
-                            <p>
-                                Pohon mangga bukan hanya keajaiban yang menghasilkan buah tetapi dapat hidup selama ratusan tahun, terus memproduksi buah yang lezat sepanjang masa hidupnya.
-                            </p>
-                        </div>
-                        <div className="highlight-box mb-4">
-                            <h5>3. Makanan Super Tropis</h5>
-                            <p>
-                                Kaya akan antioksidan, mangga adalah sumber vitamin dan mineral yang membantu meningkatkan sistem imun, memperbaiki pencernaan, dan mempromosikan kulit yang bercahaya.
-                            </p>
-                        </div>
-                        <div className="highlight-box">
-                            <h5>4. Lebih dari 500 Varietas Mangga</h5>
-                            <p>
-                                Dengan lebih dari 500 varietas yang dikenal, mangga hadir dalam berbagai bentuk, ukuran, dan rasa. Dari Alphonso hingga Haden, setiap jenis menawarkan pengalaman rasa yang unik.
-                            </p>
+                            <h5>2. Penyakit Bakteri</h5>
+                            <br></br>
+                            <h6>Penyakit Bakteri Bercak Daun (Xanthomonas campestris)</h6>
+                            <p>Penyakit ini menyebabkan bercak-bercak kuning pada daun yang dapat menyebar dan mengakibatkan kerontokan daun. Cara mengatasi:</p>
+                            <ul>
+                                <li>Gunakan pestisida berbahan aktif tembaga.</li>
+                                <li>Lakukan pemangkasan pada bagian yang terinfeksi untuk mencegah penyebaran.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 {/* Fakta Tambahan */}
-                <div className="mt-5 text-center">
-                    <h3 className="mb-4" style={{ color: "#eebd2b" }}>Ketahui Lebih Banyak Tentang Mangga</h3>
+                <div className="mt-5">
+                    <h3 className="mb-4 text-center" style={{ color: "#eebd2b" }}>Ketahui Lebih Banyak</h3>
                     <div className="row">
-                        <div className="col-md-4 mb-4">
+                        <div className="col-md-6 mb-4">
                             <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Kebun Mangga Tertua</h6>
-                                <p>
-                                    Kebun mangga tertua di dunia yang dikenal berusia lebih dari 300 tahun dan masih berkembang di India!
-                                </p>
+                                <h5 className="fact-title">3. Hama</h5>
+                                <br></br>
+                                <h6>Ulat Mangga (Graptolius spp.)</h6>
+                                <p>Ulat ini dapat merusak daun dan buah mangga, menyebabkan kerusakan yang signifikan. Cara mengatasi:</p>
+                                <ul>
+                                    <li>Gunakan insektisida yang sesuai, seperti insektisida berbahan aktif klorpirifos.</li>
+                                    <li>Lakukan pemantauan rutin untuk mendeteksi serangan hama lebih awal.</li>
+                                </ul>
                             </div>
                         </div>
-                        <div className="col-md-4 mb-4">
+                        <div className="col-md-6 mb-4">
                             <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Mangga Terbesar di Dunia</h6>
-                                <p>
-                                    Ditanam di Filipina, mangga terbesar di dunia memiliki berat 3,435 kilogram (7,57 pon).
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 mb-4">
-                            <div className="fact-card shadow-sm p-3">
-                                <h6 className="fact-title">Status Buah Nasional</h6>
-                                <p>
-                                    Mangga adalah buah nasional tidak hanya India tetapi juga Pakistan dan Filipina!
-                                </p>
+                                <h5 className="fact-title">Pencegahan Umum</h5>
+                                <br></br>
+                                <ul>
+                                    <li>Pemeliharaan Tanaman: Pastikan tanaman mendapatkan perawatan yang baik, termasuk penyiraman, pemupukan, dan pemangkasan yang tepat.</li>
+                                    <li>Kebersihan Kebun: Jaga kebersihan area kebun dengan membersihkan sisa-sisa tanaman yang terinfeksi.</li>
+                                    <li>Rotasi Tanaman: Lakukan rotasi tanaman untuk mengurangi risiko serangan hama dan penyakit.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -156,4 +157,4 @@ const MangoFacts = () => {
     );
 };
 
-export default MangoFacts;
+export default PenyakitMangga;
