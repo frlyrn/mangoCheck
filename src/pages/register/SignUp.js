@@ -91,7 +91,7 @@ class Register extends Component {
         <div>
           <NavBar />
           <div className="container-fluid">
-            <div className="container py-5">
+            <div className="container py- mt-5">
               <div className="col-6 mx-auto text-center">
                 <img src={registImage} style={{ width: "70%" }} alt="success" />
                 <h2>Terimakasih Sudah Melakukan Pendaftaran Akun!</h2>
