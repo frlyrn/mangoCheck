@@ -90,21 +90,22 @@ class Register extends Component {
       return (
         <div>
           <NavBar />
-          <div className="container-fluid">
-            <div className="container py- mt-5">
-              <div className="col-6 mx-auto text-center">
+          <div class="container-fluid">
+            <div class="container py-5 mt-5">
+              <div class="col-md-6 col-sm-8 col-10 mx-auto text-center">
                 <img src={registImage} style={{ width: "70%" }} alt="success" />
                 <h2>Terimakasih Sudah Melakukan Pendaftaran Akun!</h2>
                 <hr />
                 <p>
-                  Anda telah berhasil mendaftar. Mulai periksa mangga Anda?{" "}
-                  <a href="/login" className="link-primary">
+                  Anda telah berhasil mendaftar. Mulai periksa mangga Anda?
+                  <a href="/login" class="link-primary">
                     Selanjutnya
                   </a>
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       );
     }
@@ -168,9 +169,8 @@ class Register extends Component {
                               required
                             />
                             <i
-                              className={`fas ${
-                                showPassword ? "bi-eye-slash" : "bi-eye"
-                              } position-absolute end-0 top-50 translate-middle-y me-3`}
+                              className={`fas ${showPassword ? "bi-eye-slash" : "bi-eye"
+                                } position-absolute end-0 top-50 translate-middle-y me-3`}
                               style={{ cursor: "pointer" }}
                               onClick={() => this.togglePasswordVisibility("showPassword")}
                             ></i>
@@ -186,9 +186,8 @@ class Register extends Component {
                               required
                             />
                             <i
-                              className={`fas ${
-                                showConfirmPassword ? "bi-eye-slash" : "bi-eye"
-                              } position-absolute end-0 top-50 translate-middle-y me-3`}
+                              className={`fas ${showConfirmPassword ? "bi-eye-slash" : "bi-eye"
+                                } position-absolute end-0 top-50 translate-middle-y me-3`}
                               style={{ cursor: "pointer" }}
                               onClick={() =>
                                 this.togglePasswordVisibility("showConfirmPassword")
