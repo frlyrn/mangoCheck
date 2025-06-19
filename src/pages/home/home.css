@@ -3,8 +3,11 @@
     background-image: url('../../images/banner.jpg');
     height: 90vh;
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
     color: #fff;
+    overflow: hidden;
 }
 
 .banner::before {
@@ -22,22 +25,36 @@
     font-family: 'Quicksand', sans-serif;
     position: absolute;
     top: 60%;
-    left: 48%;
-    transform: translateY(-50%);
+    left: 50%; /* agak ke kanan dari tengah */
+    transform: translateY(-50%); /* hanya vertikal */
     z-index: 2;
     text-align: left;
+    max-width: 700px;
+    width: 100%;
+}
+
+.banner-text h5 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 0.5rem;
 }
 
 .banner-text h1 {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     color: #eebd2b;
-    font-size: 4rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.banner-text p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 1.5rem;
 }
 
 .banner-button:hover {
-    background-color: #e0a800; 
-    transform: scale(1.05); 
+    background-color: #e0a800;
+    transform: scale(1.05);
 }
+
 
 .how-it-works-section {
     background-color: #f8f9fa; 
@@ -160,9 +177,13 @@
 }
 
 @media (max-width: 768px) {
+    .banner {
+        height: 70vh;
+        background-position: 30% center;
+    }
+
     .banner-text {
         top: 60%;
-        left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
         padding: 0 20px;
@@ -170,10 +191,6 @@
 
     .banner-text h1 {
         font-size: 2.5rem;
-    }
-
-    .banner {
-        height: 60vh;
     }
 
     .blog-section {
@@ -202,7 +219,4 @@
         font-size: 2rem;
     }
 
-    .banner {
-        height: 90vh;
-    }
 }

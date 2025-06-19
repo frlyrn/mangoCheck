@@ -20,14 +20,15 @@ const HistoryDetection = () => {
                     },
                 };
 
-                const response = await axios.get("http://34.101.243.176:3000/history", config);
+                const response = await axios.get("https://mango-backend-374006059960.asia-southeast2.run.app/history", config);
 
-                if (response.data.status === "success") {
-                    const sortedData = response.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                    setHistory(sortedData);
-                } else {
-                    setError("Gagal mengambil riwayat deteksi. Silakan coba lagi.");
-                }
+                const sortedData = response.data.sort((a, b) => {
+                    const timeA = a.timestamp?._seconds || 0;
+                    const timeB = b.timestamp?._seconds || 0;
+                    return timeB - timeA;
+                });
+
+                setHistory(sortedData);
             } catch (err) {
                 console.error("Error fetching history:", err);
                 setError("An error occurred while fetching detection history.");
@@ -39,9 +40,9 @@ const HistoryDetection = () => {
         fetchHistory();
     }, []);
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        if (isNaN(date)) return "Invalid Date";
+    const formatDate = (timestamp) => {
+        if (!timestamp || typeof timestamp._seconds !== "number") return "Unknown";
+        const date = new Date(timestamp._seconds * 1000);
         return date.toLocaleDateString("en-US", {
             day: "2-digit",
             month: "long",
@@ -103,13 +104,13 @@ const HistoryDetection = () => {
                     <>
                         <Row>
                             {currentItems.map((entry, index) => (
-                                <Col md={6} key={entry.id} className="mb-4 d-flex">
+                                <Col md={6} key={entry.id || index} className="mb-4 d-flex">
                                     <Alert variant="light" className="shadow-sm w-100 d-flex flex-column justify-content-between">
                                         <Row className="align-items-center">
                                             <Col xs={4} className="text-center">
-                                                {entry.imageUrl && (
+                                                {entry.image_url && (
                                                     <Image
-                                                        src={entry.imageUrl}
+                                                        src={entry.image_url}
                                                         alt={`Mango Detection ${index + 1}`}
                                                         thumbnail
                                                         style={{ maxWidth: '100%', height: 'auto' }}
@@ -120,7 +121,7 @@ const HistoryDetection = () => {
                                                 <h6 className="font-weight-bold">History #{indexOfFirstItem + index + 1}</h6>
                                                 <p className="mb-1"><strong>Result:</strong> {entry.result}</p>
                                                 <p className="mb-1"><strong>Suggestion:</strong> {entry.suggestion}</p>
-                                                <p className="mb-0"><strong>Detection Date:</strong> {formatDate(entry.createdAt)}</p>
+                                                <p className="mb-0"><strong>Detection Date:</strong> {formatDate(entry.timestamp)}</p>
                                             </Col>
                                         </Row>
                                     </Alert>

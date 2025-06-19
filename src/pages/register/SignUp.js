@@ -7,8 +7,8 @@ class Register extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      email: "",
+      nama: "",
+      username: "",
       password: "",
       confirmPassword: "",
       showPassword: false,
@@ -34,10 +34,10 @@ class Register extends Component {
   register = async (event) => {
     event.preventDefault();
 
-    const { name, email, password, confirmPassword } = this.state;
+    const { nama, username, password, confirmPassword } = this.state;
 
-    // Form validation
-    if (!name || !email || !password || !confirmPassword) {
+    // Validasi form
+    if (!nama || !username || !password || !confirmPassword) {
       this.setState({
         registrationStatus: "FAILED",
         errorMessage: "Semua kolom harus diisi!",
@@ -54,22 +54,21 @@ class Register extends Component {
     }
 
     try {
-      const response = await axios.post("http://34.101.243.176:3000/regist", {
-        name,
-        email,
+      const response = await axios.post("https://mango-backend-374006059960.asia-southeast2.run.app/register", {
+        nama,
+        username,
         password,
       });
-      console.log(response.data);
+
       this.setState({
         registrationComplete: true,
         registrationStatus: "SUCCESS",
+        errorMessage: "",
       });
     } catch (error) {
-      console.error(error);
       this.setState({
         registrationStatus: "FAILED",
-        errorMessage:
-          error.response?.data?.message || "Terjadi kesalahan selama pendaftaran.",
+        errorMessage: error.response?.data?.error || "Terjadi kesalahan selama pendaftaran.",
       });
     }
   };
@@ -79,8 +78,8 @@ class Register extends Component {
       registrationComplete,
       registrationStatus,
       errorMessage,
-      name,
-      email,
+      nama,
+      username,
       password,
       confirmPassword,
       showPassword,
@@ -128,7 +127,7 @@ class Register extends Component {
                     </div>
                     <div className="col-md-6 col-lg-7 d-flex align-items-center">
                       <div className="card-body">
-                        <form onSubmit={this.register} className="needs-validation" novalidate>
+                        <form onSubmit={this.register} className="needs-validation" noValidate>
                           <h3>Buat Akun Anda!</h3>
                           <hr />
                           {registrationStatus === "FAILED" && (
@@ -138,10 +137,10 @@ class Register extends Component {
                           )}
                           <div className="form-outline">
                             <input
-                              value={name}
+                              value={nama}
                               onChange={this.handleChange}
                               type="text"
-                              name="name"
+                              name="nama"
                               className="form-control"
                               placeholder="Masukkan nama anda"
                               required
@@ -149,12 +148,12 @@ class Register extends Component {
                           </div>
                           <div className="form-outline">
                             <input
-                              value={email}
+                              value={username}
                               onChange={this.handleChange}
-                              type="email"
-                              name="email"
+                              type="text"
+                              name="username"
                               className="form-control"
-                              placeholder="Masukkan email anda"
+                              placeholder="Masukkan username anda"
                               required
                             />
                           </div>

@@ -9,12 +9,13 @@ import "./style.css";
 
 const Login = () => {
   const authCtx = useContext(AuthContext);
-  const inputEmailRef = useRef();
+  const inputUsernameRef = useRef();
   const inputPasswordRef = useRef();
   const navigate = useNavigate();
 
   const [loginStatus, setLoginStatus] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
@@ -22,29 +23,46 @@ const Login = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    const inputEmail = inputEmailRef.current.value;
+    const inputUsername = inputUsernameRef.current.value;
     const inputPassword = inputPasswordRef.current.value;
 
+    setLoginStatus("");
+    setErrorMsg("");
+
+    if (!inputUsername || !inputPassword) {
+    setLoginStatus("FAILED");
+    setErrorMsg("Semua kolom harus diisi!");
+    return;
+  }
+
     try {
-      const res = await axios.post("http://34.101.243.176:3000/login", {
-        email: inputEmail,
+      const res = await axios.post("https://mango-backend-374006059960.asia-southeast2.run.app/login", {
+        username: inputUsername,
         password: inputPassword,
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
 
-      const token = res.data.data.token;
-      authCtx.login(token);
-      setLoginStatus("SUCCESS");
+      const token = res?.data?.token;
 
-      navigate("/deteksiKematangan");
+      if (token) {
+        authCtx.login(token);
+        setLoginStatus("SUCCESS");
+        navigate("/deteksiKematangan", { replace: true });
+        inputUsernameRef.current.value = "";
+        inputPasswordRef.current.value = "";
+      } else {
+        setLoginStatus("FAILED");
+      }
     } catch (err) {
+      const errorMessage = err.response?.data?.error || "Terjadi kesalahan saat login.";
       setLoginStatus("FAILED");
-      console.error(
-        err.response?.data?.message || "Terjadi kesalahan saat login."
-      );
-    } finally {
-      inputEmailRef.current.value = "";
-      inputPasswordRef.current.value = "";
+      setErrorMsg(errorMessage);
+      console.error(errorMessage);
     }
+
   };
 
   return (
@@ -66,35 +84,28 @@ const Login = () => {
                         <hr />
                         {loginStatus === "FAILED" && (
                           <div className="alert alert-danger text-center">
-                            Email atau password tidak valid!
+                            {errorMsg}
                           </div>
                         )}
                         <div className="form-outline mb-3">
                           <input
-                            ref={inputEmailRef}
-                            type="email"
-                            name="email"
+                            ref={inputUsernameRef}
+                            type="text"
+                            name="username"
                             className="form-control"
-                            placeholder="Masukkan email anda"
-                            required
+                            placeholder="Masukkan username anda"
                           />
                         </div>
-                        <div
-                          className="form-outline mb-3"
-                          style={{ position: "relative" }}
-                        >
+                        <div className="form-outline mb-3" style={{ position: "relative" }}>
                           <input
                             ref={inputPasswordRef}
                             type={showPassword ? "text" : "password"}
-                            className="form-control"
                             name="password"
+                            className="form-control"
                             placeholder="Masukkan password anda"
-                            required
                           />
                           <i
-                            className={`bi ${
-                              showPassword ? "bi-eye-slash" : "bi-eye"
-                            }`}
+                            className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
                             style={{
                               position: "absolute",
                               right: "10px",
@@ -108,12 +119,11 @@ const Login = () => {
                         </div>
                         <div className="pt-1 mb-4">
                           <button className="btn btn-login" type="submit">
-                            Sign In
-                          </button>
+                              Login
+                            </button>
                         </div>
                         <p className="mb-3 pb-lg-2">
-                          Belum mempunyai akun?{" "}
-                          <a href="/registrasi">Daftar disini</a>
+                          Belum mempunyai akun? <a href="/registrasi">Daftar disini</a>
                         </p>
                       </form>
                     </div>

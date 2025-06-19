@@ -76,7 +76,7 @@ const MangoDetection = () => {
         setError(null);
 
         const formData = new FormData();
-        formData.append("image", imageFile);
+        formData.append("file", imageFile); 
 
         try {
             const token = localStorage.getItem("token");
@@ -87,14 +87,13 @@ const MangoDetection = () => {
                 }
             };
 
-            const response = await axios.post("http://34.101.243.176:3000/predict", formData, config);
-            console.log(response.data);
+            const response = await axios.post(
+                "https://mango-backend-374006059960.asia-southeast2.run.app/predict",
+                formData,
+                config
+            );
 
-            if (response.data.status === "success") {
-                setDetectionResult(response.data.data);
-            } else {
-                setError("Gagal melakukan deteksi. Silakan coba lagi.");
-            }
+            setDetectionResult(response.data); 
         } catch (err) {
             console.error("Error during prediction:", err);
             setError("Terjadi kesalahan saat melakukan prediksi. Silakan coba lagi.");
@@ -194,7 +193,6 @@ const MangoDetection = () => {
                     <h2 className="text-center my-5" style={{ color: "#346c4e" }}
                     >Latest Articles</h2>
                     <Carousel interval={null} indicators={false}>
-                        {/* Loop articles in groups of 3 */}
                         {[0, 3].map((startIndex) => (
                             <Carousel.Item key={startIndex}>
                                 <div className="row justify-content-center">
